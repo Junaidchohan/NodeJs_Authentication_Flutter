@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const PORT = process.env.PORT || 3000;
 // Initilizing express
 const app = express();
+app.use(express.json());
 
 //  express.json middlewhere
 // make sure whatever req commming to our server get pass in json formate
@@ -13,6 +14,8 @@ const app = express();
 
 const DB = "mongodb+srv://junaid:Junaidm0997@cluster0.xxwz6kj.mongodb.net/?appName=Cluster0"
 
+
+// Connect NodeJS with MongoDB
 mongoose.connect(DB).then(() => {
     console.log("Connection Successflu")
 }).
