@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_nodejs_auth/pages/login_page.dart';
+import 'package:flutter_nodejs_auth/services/auth_service.dart';
 import 'package:flutter_nodejs_auth/widget/custom_text_feild.dart';
 
 class SignupPage extends StatefulWidget {
@@ -13,8 +14,16 @@ class _SignupScreenState extends State<SignupPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController nameController = TextEditingController();
+  final AuthService authService = AuthService();
 
-  void signupUser() {}
+  void signupUser() {
+    authService.signUpUser(
+      context: context,
+      email: emailController.text,
+      password: passwordController.text,
+      name: nameController.text,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {

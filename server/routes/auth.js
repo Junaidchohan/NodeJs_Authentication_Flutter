@@ -2,7 +2,7 @@ const express = require("express");
 const bcryptjs = require("bcryptjs");
 const User = require("../models/user");
 const authRouter = express.Router();
-
+const jwt = require("jsonwebtoken");
 
 //  Registring and Logging in the users
 // Signup route
