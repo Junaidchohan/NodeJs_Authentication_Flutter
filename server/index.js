@@ -11,8 +11,17 @@ const app = express();
 // make sure whatever req commming to our server get pass in json formate
 // after listen to our app start a server
 
+const DB = "mongodb+srv://junaid:Junaidm0997@cluster0.xxwz6kj.mongodb.net/?appName=Cluster0"
 
-//  IP = "0.0.0.0" which mean accessable in  enywhere
+mongoose.connect(DB).then(() => {
+    console.log("Connection Successflu")
+}).
+
+catch((e) => {
+console.log(e);
+});
+
+//  IP = "0.0.0.0" which mean accessable in  enywhere, and when this is true than run callBack fun
 app.listen(PORT , "0.0.0.0", ()=> {
 console.log(`connected at port ${PORT}`);
 });
