@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_nodejs_auth/pages/signup_page.dart';
+import 'package:flutter_nodejs_auth/provider/user_provider.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [ChangeNotifierProvider(create: (_) => UserProvider())],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatefulWidget {
