@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_nodejs_auth/pages/home_page.dart';
 import 'package:flutter_nodejs_auth/pages/signup_page.dart';
 import 'package:flutter_nodejs_auth/provider/user_provider.dart';
+import 'package:flutter_nodejs_auth/services/auth_service.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -20,12 +22,22 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  final AuthService authService = AuthService();
+
+  @override
+  void initState() {
+    super.initState();
+    authService.getUserData(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Node Auth',
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: SignupPage(),
+      home: Provider.of<UserProvider>(context).user.token.isEmpty
+          ? const SignupPage()
+          : const HomePage(),
     );
   }
 }
