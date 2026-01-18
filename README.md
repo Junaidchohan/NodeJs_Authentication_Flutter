@@ -1,4 +1,5 @@
-Flutter Node.js Authentication App
+Flutter Node.js Authentication App.
+
 A full-stack authentication system built with Flutter on the frontend and Node.js + Express on the backend. This project implements secure Email and Password Signup/Login, JWT-based authentication, password hashing, and persistent user sessions without using Firebase.
 This project is inspired by the tutorial from Rivaan Ranawat and extended with real-device support and clean architecture.
 ```
